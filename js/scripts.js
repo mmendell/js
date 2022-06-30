@@ -1,1 +1,5 @@
-let pokemonList = ["Bulbasaur", 7, "grass"] ["ivysassur", 8, "poison"]["kakuna", 9, "bug"];
+let pokemonList = [
+    { 'name': 'bulbasur', 'size': 7, 'type': 'grass' };
+    { 'name': 'charmader', 'size': 0.6, 'type': 'fire' };
+    { 'name': 'kakuna', 'size':  0.6, 'type': 'bug'};
+];
