@@ -1,4 +1,1 @@
-alert('hello world');
-
-let favFood = 'grilled ribeye';
-document.write(favFood);
+let pokemonList = ["Bulbasaur", 7, "grass"] ["ivysassur", 8, "poison"]["kakuna", 9, "bug"];
