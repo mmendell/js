@@ -19,15 +19,18 @@ let pokemonList = [
 
 
 for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemmonList[i].size > 1) {
-        document.write(pokemonList[i].name + 'what a massiv ething you may appear as')
+    if (pokemonList[i].size > 1) {
+        document.write(pokemonList[i].name + ' what a massiv ething you may appear as ', "\n")
         
     } else if (pokemonList[i].type == 'grass') {
-        document.write(pokemonList[i].name + ' (height' + pokemonList[i].size + ')')
+        document.write(pokemonList[i].name + ' (height ' + pokemonList[i].size + ')' , "\n")
     } else {
-        document.write(pokemonList[i].name +' (height' + pokemonList[i].size + ')')
+        document.write(pokemonList[i].name + ' (height ' + pokemonList[i].size + ')', "\n")
     }
     
 };
 
 
+// for (let i = 0; i < pokemonList.length; i++){
+//     document.write (pokemonList[i].name + ' (height' + space + pokemonList[i].size + ') ' ) 
+// }
