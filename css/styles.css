@@ -21,4 +21,7 @@ jsc {
     font-weight: 400;
     font-size: medium;
     line-height: 2;
+    display: flex;
+    text-align: center;
+    margin: 25%;
   }
