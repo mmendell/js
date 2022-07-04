@@ -23,5 +23,7 @@ jsc {
     line-height: 2;
     display: flex;
     text-align: center;
-    margin: 25%;
+    margin: 5%;
+    padding-left: 50px;
+    padding-right: 50px;
   }
