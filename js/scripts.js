@@ -32,8 +32,10 @@ let pokemonRepository = (function () {
 
 })();
 
-console.log(pokemonRepository.getAll())
 
-pokemonList.forEach(pokemonList.getAll => {
-    document.write(pokemonList.name + " is " + pokemonList.size + ' tall' + '<br>')
-});
+let pokemonList = pokemonRepository.getAll();
+
+pokemonList.forEach(function (pokemon){
+        document.write(pokemon.name + ' is ' + pokemon.size + ' tall' + '<br>')
+    
+})
