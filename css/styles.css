@@ -45,3 +45,8 @@ main-area{
   margin: 25px;
   text-decoration: none;
 }
+
+button:focus:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}

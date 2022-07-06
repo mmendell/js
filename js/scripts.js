@@ -26,8 +26,8 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        console.log();
-    }
+        console.log(pokemon);
+    };
 
 
     function addListItem(pokemon) {
@@ -38,8 +38,8 @@ let pokemonRepository = (function () {
         button.classList.add("button-class");
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
-        button.addEventListener('click', function(showDetails){
-            
+        button.addEventListener('click', function(){
+           showDetails(pokemon);
         })
 
     }
@@ -48,6 +48,7 @@ let pokemonRepository = (function () {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
+        showDetails:showDetails,
     };
 
 })();
