@@ -89,9 +89,3 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
-
-// let pokemonList = pokemonRepository.getAll();
-
-// pokemonList.forEach(function (pokemon) {
-//     pokemonRepository.addListItem(pokemon)
-// })
