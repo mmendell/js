@@ -22,12 +22,12 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
-        let button = document.createElement("button");
-        button.innerText = pokemon.name;
-        button.classList.add("button-class");
-        listItem.appendChild(button);
+        let listButton = document.createElement("button");
+        listButton.innerText = pokemon.name;
+        listButton.classList.add("button-class");
+        listItem.appendChild(listButton);
         pokemonList.appendChild(listItem);
-        button.addEventListener("click", function (event) {
+        listButton.addEventListener("click", function (event) {
             showDetails(pokemon);
         })
 
@@ -64,6 +64,8 @@ let pokemonRepository = (function () {
     }
 
 
+ 
+
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             modalContainer.innerHTML = ' ';
@@ -80,24 +82,24 @@ let pokemonRepository = (function () {
             let pokeName = document.createElement('h1');
             pokeName.innerText = 'item.name';
 
-            let pokeImg = document.createElement('img');
-            pokeImg.src = item.imageUrl;
+            // let pokeImg = document.createElement('img');
+            // pokeImg.src = 'item.imageUrl';
 
             let pokeHeight = document.createElement('p');
-            pokeHeight.innerText = item.height;
+            pokeHeight.innerText = 'item.height';
 
             let pokeType = document.createElement('p');
-            pokeType.innerText = item.height;
+            pokeType.innerText = 'item.type';
 
             modal.appendChild(closeButton);
             modal.appendChild(pokeName);
-            modal.appendChild(pokeImg);
+            // modal.appendChild(pokeImg);
             modal.appendChild(pokeHeight);
             modal.appendChild(pokeType);
             modalContainer.appendChild(modal);
 
 
-            modal.classList.add('is visible');
+            modal.classList.add('is-visible');
 
         });
     }
