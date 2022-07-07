@@ -16,9 +16,7 @@ let pokemonRepository = (function () {
         pokemonList.push(pokemon);
     }
 
-    function getAll() {
-        return pokemonList;
-    }
+
 
 
     function addListItem(pokemon) {
@@ -66,20 +64,21 @@ let pokemonRepository = (function () {
     }
 
 
-    function showDetails(item) {
-        loadDetails(item).then(function () {
-            modalContainer.innerHTML = '';
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            modalContainer.innerHTML = ' ';
 
             let modal = document.createElement('div');
             modal.classList.add('modal');
 
             let closeButton = document.createElement('button');
             closeButton.classList.add('close-modal');
+            closeButton.setAttribute('title', 'close');
             closeButton.innerText = 'close';
             closeButton.addEventListener('click', hideDetails);
 
             let pokeName = document.createElement('h1');
-            pokeName.innerText = item.name;
+            pokeName.innerText = 'item.name';
 
             let pokeImg = document.createElement('img');
             pokeImg.src = item.imageUrl;
@@ -103,27 +102,25 @@ let pokemonRepository = (function () {
         });
     }
 
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            hideDetails();
-        }
-    });
-
-    modalContainer.addEventListener('click', (e) => {
-        let target = e.target;
-        if (target === closeButton) {
-            hideModal();
-        }
-    });
-
-    function hidePokemon() {
+    function hideDetails (){
         modalContainer.classList.remove('is-visible');
     }
 
-    document.querySelector('#show-modal').addEventListener('click', () => {
-        showDetails();
+    function getAll() {
+        return pokemonList;
+    }
+
+
+    window.addEventListener('keydown', (e) =>{
+        if (e.key === 'Esacpe' && modalContainer.classList
+        .contains('is-visible')){
+            hideDetails();
+        }
     })
+
+    // document.querySelector('#show-modal').addEventListener('click', () => {
+    //     showDetails();
+    // })
 
 
 

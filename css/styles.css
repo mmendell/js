@@ -58,11 +58,11 @@ button:focus:hover {
   list-style-type: none;
 }
 
-#modal-container {
+#modal-Container {
   display: none;
 }
 
-#modal-container {
+#modal-Container.is-visible {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
