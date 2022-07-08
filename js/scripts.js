@@ -16,9 +16,6 @@ let pokemonRepository = (function () {
         pokemonList.push(pokemon);
     }
 
-
-
-
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".pokemon-list");
         let listItem = document.createElement("li");
@@ -66,10 +63,10 @@ function openDetails(){
         });
     }
 
-
-
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
+            console.log('loadDetails', pokemon);
+
             modalContainer.innerHTML = ' ';
 
             let modal = document.createElement('div');
@@ -82,29 +79,20 @@ function openDetails(){
             closeButton.addEventListener('click', hideDetails);
 
             let pokeName = document.createElement('h1');
-            pokeName.innerText = 'item.name';
+            pokeName.innerText = pokemon.name;
 
-            // let pokeImg = document.createElement('img');
-            // pokeImg.src = 'item.imageUrl';
+            let pokeImg = document.createElement('img');
+            pokeImg.src = pokemon.imageUrl;
 
             let pokeHeight = document.createElement('p');
-            pokeHeight.innerText = 'item.height';
-            
-
-
-            let pokeType = document.createElement('p');
-            pokeType.innerText = 'item.type';
-
+            pokeHeight.innerText = pokemon.height;
+          
             modal.appendChild(closeButton);
             modal.appendChild(pokeName);
-           // modal.appendChild(pokeImg);
+            modal.appendChild(pokeImg);
             modal.appendChild(pokeHeight);
-            modal.appendChild(pokeType);
             modalContainer.appendChild(modal);
-
-
             modalContainer.classList.add('is-visible');
-
 
         });
     }
@@ -121,20 +109,16 @@ function openDetails(){
     modalContainer.addEventListener('click', (e) => {
         let target = e.target;
         if (target === modalContainer) {
-            hideModal();
+            hideDetails();
         }
     });
     
-
-
-
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Esacpe' && modalContainer.classList
+        if (e.key === 'Escape' && modalContainer.classList
             .contains('is-visible')) {
             hideDetails();
         }
     })
-
 
     return {
         add: add,
