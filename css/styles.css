@@ -11,7 +11,7 @@ body {
     background-color: var(--primary-color);
   }
   
-jsc {
+.jsc {
     font-family: var(--primary-font);
     font-weight: 400;
     font-size: 16pc;
@@ -36,17 +36,16 @@ main-area{
   text-align: center;
 }
 .button-class{
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  margin: 10px;
   color: blue;
   background-color: aqua;
   border: #357b70;
-  border-radius: 25%;
+  border-width: 4px;
   padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 5px;
-  text-decoration: none;
   list-style-type: none;
-  border-top: 1%;
 }
 
 button:focus:hover {
@@ -58,11 +57,13 @@ button:focus:hover {
   list-style-type: none;
 }
 
-#modal-Container {
+#modal-container {
   display: none;
 }
 
-#modal-Container.is-visible {
+
+
+#modal-container.is-visible {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
@@ -71,6 +72,9 @@ button:focus:hover {
   width: 80%;
   height: 80%;
   background: #8b2460;
+  z-index: 999;
+  overflow: auto;
+  text-align: center;
 }
 
 .modal {

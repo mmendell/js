@@ -27,11 +27,14 @@ let pokemonRepository = (function () {
         listButton.classList.add("button-class");
         listItem.appendChild(listButton);
         pokemonList.appendChild(listItem);
-        listButton.addEventListener("click", function (event) {
+        listButton.addEventListener('click', function () {
             showDetails(pokemon);
         })
-
     }
+
+function openDetails(){
+    listButton('click');
+}
 
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -64,7 +67,6 @@ let pokemonRepository = (function () {
     }
 
 
- 
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
@@ -87,24 +89,27 @@ let pokemonRepository = (function () {
 
             let pokeHeight = document.createElement('p');
             pokeHeight.innerText = 'item.height';
+            
+
 
             let pokeType = document.createElement('p');
             pokeType.innerText = 'item.type';
 
             modal.appendChild(closeButton);
             modal.appendChild(pokeName);
-            // modal.appendChild(pokeImg);
+           // modal.appendChild(pokeImg);
             modal.appendChild(pokeHeight);
             modal.appendChild(pokeType);
             modalContainer.appendChild(modal);
 
 
-            modal.classList.add('is-visible');
+            modalContainer.classList.add('is-visible');
+
 
         });
     }
 
-    function hideDetails (){
+    function hideDetails() {
         modalContainer.classList.remove('is-visible');
     }
 
@@ -112,21 +117,23 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
+    
+    modalContainer.addEventListener('click', (e) => {
+        let target = e.target;
+        if (target === modalContainer) {
+            hideModal();
+        }
+    });
+    
 
-    window.addEventListener('keydown', (e) =>{
+
+
+    window.addEventListener('keydown', (e) => {
         if (e.key === 'Esacpe' && modalContainer.classList
-        .contains('is-visible')){
+            .contains('is-visible')) {
             hideDetails();
         }
     })
-
-    // document.querySelector('#show-modal').addEventListener('click', () => {
-    //     showDetails();
-    // })
-
-
-
-
 
 
     return {
