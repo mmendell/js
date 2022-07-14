@@ -11,8 +11,7 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".list-group");
         let listItem = document.createElement("li");
-        let listButton = document.createElement("button");
-        listButton.innerText = pokemon.name;
+        let listButton = document.querySelector("btn btn-primary");
         listButton.classList.add("group-list-item");
         listButton.innerText = pokemon.name;
         listButton.classList.add('pokemon-button');
@@ -69,9 +68,9 @@ let pokemonRepository = (function () {
     }
 
     function showModal(pokemon) {
-        $('#pokemon-modal .modal-title').text(pokemon.name);
-        $('#pokemon-modal .modal-img').attr('src', pokemon.imageUrl);
-        $('#pokemon-modal .height').text('height: ${pokemon.height}');
+        $('#modal .modal-title').text(pokemon.name);
+        $('#modal .modal-img').attr('src', pokemon.imageUrl);
+        $('#modal .height').text('height: ${pokemon.height}');
     }
 
 
