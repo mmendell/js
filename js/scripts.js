@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
-    let modalContainer = document.querySelector('#modal');
+   // let modalContainer = document.querySelector('#modal');
 
 
     function add(pokemon) {
@@ -70,10 +70,30 @@ let pokemonRepository = (function () {
     }
 
     function showModal(pokemon) {
-        $('#modal .modal-title').text(pokemon.name);
-        $('#modal .modal-img').attr('src', pokemon.imageUrl);
-        $('#modal .height').text('height: ${pokemon.height}');
-        $('#moadl .types').text('type: ${pokemon.types}');
+        let modalBody = $('#poke-modal-body');
+        let modalTitle = $('#poke-modal-title');
+
+        modalBody.innerHTML = "";
+        modalTitle.innerHTML = "";
+
+        let pokemonName = document.createElement('h1');
+        pokemonName.innerText = pokemon.name;
+
+        let pokemonSprite = document.createElement('img');
+        pokemonSprite.src = pokemon.imageUrl;
+
+        let pokemonType = document.createElement('p');
+        pokemonType.innerText = 'Type: ' + pokemon.types.join(", ");
+        pokemonType.classList.add("pokemon-type");
+
+        let pokemonHeight = document.createElement('p');
+        pokemonHeight.innerText = 'Height: ' + pokemon.height;
+
+        modalTitle.appendChild(pokemonName);
+        modalBody.appendChild(pokemonSprite);
+        modalBody.appendChild(pokemonType);
+        modalBody.appendChild(pokemonHeight);
+
     }
 
 
