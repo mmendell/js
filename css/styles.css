@@ -54,7 +54,7 @@ button:focus:hover {
   opacity: 0.5;
 }
 
-.pokemon-list {
+.list-group {
   align-items: center;
   list-style-type: none;
   display: inline;
@@ -93,6 +93,7 @@ button.close-modal:hover {
   text-align: center;
   display: grid;
   box-shadow: 0;
+  color: var(--primary-color);
 }
 
 .modal {
@@ -100,7 +101,6 @@ button.close-modal:hover {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: rgb(43, 226, 141);
   padding: 15px;
   width: 100%;
   max-width: auto;
