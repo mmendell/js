@@ -11,23 +11,21 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let pokemonList = document.querySelector(".list-group");
         let listItem = document.createElement("li");
-        let listButton = document.querySelector("btn btn-primary");
-        listButton.classList.add("group-list-item");
-        listButton.innerText = pokemon.name;
-        listButton.classList.add('pokemon-button');
-        listButton.setAttribute('data-toggle', 'modal');
-        $(listButton).addClass('btn btn-secondary');
-
-        listItem.appendChild(listButton);
+        let button = document.querySelector("button");
+        button.innerText = pokemon.name;
+        listItem.classList.add('list-group-item');
+        button.setAttribute('data-target', '#modal');
+        listItem.appendChild(button);
         pokemonList.appendChild(listItem);
-
-        addListener(listButton, pokemon)
+        clickEvent(button, pokemon);
     }
 
-
-    function openDetails() {
-        listButton('click');
+    function clickEvent(button, pokemon) {
+        button.addEventListener('click', function () {
+            showDetails(pokemon);
+        });
     }
+
 
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -61,16 +59,21 @@ let pokemonRepository = (function () {
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-            console.log('loadDetails', pokemon);
             showModal(pokemon);
-        }
-        )
+        });
+    }
+
+    function addListener(button, pokemon) {
+        button.addEventListener('click', function () {
+            showDetails(pokemon);
+        })
     }
 
     function showModal(pokemon) {
         $('#modal .modal-title').text(pokemon.name);
         $('#modal .modal-img').attr('src', pokemon.imageUrl);
         $('#modal .height').text('height: ${pokemon.height}');
+        $('#moadl .types').text('type: ${pokemon.types}');
     }
 
 
@@ -79,11 +82,7 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
-    function addListener(button, pokemon){
-        button.addEventListener('click' , function () {
-                showDetails(pokemon);
-            } )
-    }
+
 
 
     return {
