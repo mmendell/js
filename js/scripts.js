@@ -84,16 +84,11 @@ let pokemonRepository = (function () {
         let pokemonSprite = document.createElement('img');
         pokemonSprite.src = pokemon.imageUrl;
 
-        let pokemonType = document.createElement('p');
-        pokemonType.innerText = 'Type: ' + pokemon.types;
-        pokemonType.classList.add("pokemon-type");
-
         let pokemonHeight = document.createElement('p');
         pokemonHeight.innerText = 'Height: ' + pokemon.height;
 
         modalTitle.appendChild(pokemonName);
         modalBody.appendChild(pokemonSprite);
-        modalBody.appendChild(pokemonType);
         modalBody.appendChild(pokemonHeight);
 
     }
