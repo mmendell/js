@@ -22,6 +22,7 @@ let pokemonRepository = (function () {
         );
         listItem.classList.add('list-group-item');
         button.setAttribute('data-target', '#modal');
+        button.setAttribute('data-toggle', 'modal');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
         clickEvent(button, pokemon);
