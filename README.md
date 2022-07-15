@@ -1,0 +1,1 @@
+Created a basic site with api call fetching data, then using js maniputlating the DOM to display all the fetched data. Using Bootstrap implemented the visual elemnt modal. Polyfills have been added to support the older browsers not compatible.
